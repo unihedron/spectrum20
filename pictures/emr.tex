@@ -1,0 +1,66 @@
+%Description: Electromagnetic radiation schematic with travelling photon
+
+\definecolor{DarkGreen}{rgb}{0,0.6,0}
+\definecolor{MagneticBlue}{rgb}{.7,.7,1}
+\definecolor{ElectricRed}{rgb}{1,.7,.7}
+
+\psset{unit=0.5in}%Size
+
+\psset{viewpoint=1 1 1}
+
+\psset{hatchsep=2pt}
+
+%Axis labels
+\ThreeDput[normal=1 0 0 ]{\textcolor{ElectricRed}{
+	\psline[linecolor=ElectricRed]{<->}(0,-1.1)(0,1.1)
+%	\uput{2pt}[90](0,1.5){+Electric Field Strength}
+	\rput[l]{0}(-0.1,1.3){Electric Field Strength}
+	\uput{2pt}[270](0.3,-0.8){-E}}
+}
+
+\ThreeDput[normal=0 0 1,embedangle=90]{\textcolor{MagneticBlue}{
+	\psline[linecolor=MagneticBlue]{<->}(0,-1.1)(0,1.1)
+	\rput[l]{0}(-0.1,-1.3){Magnetic Field Strength}
+	\uput{2pt}[90](0.3,0.8){-B}}
+}
+
+% Source and Space labels
+\ThreeDput[normal=1 0 0]{
+       \psline[linecolor=white,linestyle=solid]{cc->}(0,0)(3.4,0)
+       \uput{5pt}[180](0,0.1){\white Source}
+       \uput{4pt}[270](3.2,0){\white Space}
+}
+
+{ % Waveforms
+	\psset{linestyle=none, fillstyle=hlines,hatchangle=90}
+
+	% Magnetic (back humps)
+	\ThreeDput[normal=0 0 1,embedangle=90]{
+		\psset{hatchcolor=MagneticBlue}
+		\parabola(0,0)(.5,-1)
+		\parabola(1,0)(1.5,1)
+	}
+	% Electric (back humps)
+	\ThreeDput[normal=1 0 0]{
+		\psset{hatchcolor=ElectricRed}
+		\parabola(0,0)(.5,1)
+		\parabola(1,0)(1.5,-1)
+	}
+	% Magnetic (front hump)
+	\ThreeDput[normal=0 0 1,embedangle=90]{
+		\psset{hatchcolor=MagneticBlue}
+		\parabola(2,0)(2.5,-1)
+	}
+	% Electric (front hump)
+	\ThreeDput[normal=1 0 0]{
+		\psset{hatchcolor=ElectricRed}
+		\parabola(2,0)(2.5,1)
+	}
+}
+
+\rput[l](0,-1.8){
+	\parbox[t]{2in}{
+		\textcolor{white}{Wave Nature}
+	}
+}
+
