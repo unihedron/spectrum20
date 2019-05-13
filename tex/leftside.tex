@@ -1,0 +1,34 @@
+
+{
+  %Upper Left side notes
+  
+  \psset{cornersize=absolute,linearc=4pt,fillstyle=solid,fillcolor=Black, linecolor=white}
+  \white
+
+  \rput[bl]{0}(0,0){
+    \parbox[t]{\nLeftWidth}{
+
+	\psframebox{\parbox[t]{\nLeftWidth}{\white\input{tex/description.tex}}}
+
+	\vspace{\VerticalSeparation}
+	
+	\psframebox{\parbox[t]{\nLeftWidth}{\white\input{tex/gammarays.tex}}}
+
+	\vspace{\VerticalSeparation}
+
+
+	\psframebox{\parbox[t]{\nLeftWidth}{\input{tex/ultraviolet.tex}}}
+
+	\vspace{\VerticalSeparation}
+
+	\psframebox{\parbox[t]{\nLeftWidth}{\input{tex/absorption.tex}}}
+
+	\vspace{\VerticalSeparation}
+
+	\psframebox{\parbox[t]{\nLeftWidth}{\white\input{tex/visible.tex}}}
+
+	\vspace{\VerticalSeparation}
+
+    }
+  }
+}
